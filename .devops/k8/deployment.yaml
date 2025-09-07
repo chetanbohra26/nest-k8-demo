@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nest-k8-demo
-          image: nest-k8-demo:v2
+          image: nest-k8-demo:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 3000

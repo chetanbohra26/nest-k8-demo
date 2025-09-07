@@ -7,7 +7,7 @@ export class AppController {
 
   @Get('health')
   getHealth() {
-    return { success: true, message: 'App is running fine' };
+    return { success: true, message: 'App is running OK' };
   }
 
   @Get()
