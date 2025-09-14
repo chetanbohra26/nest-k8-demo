@@ -15,4 +15,12 @@ export class AppController {
     const message = this.appService.getHello();
     return { success: true, message };
   }
+
+  @Get('env')
+  getEnv() {
+    return {
+      success: true,
+      env: process.env,
+    };
+  }
 }
