@@ -16,6 +16,18 @@ spec:
         - name: nest-k8-demo
           image: nest-k8-demo:latest
           imagePullPolicy: Never
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
           ports:
             - containerPort: 3000
           env:
