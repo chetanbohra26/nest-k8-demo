@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nest-k8-demo
+  namespace: app-service
 spec:
   replicas: 2
   selector:
@@ -16,6 +17,19 @@ spec:
         - name: nest-k8-demo
           image: nest-k8-demo:latest
           imagePullPolicy: Never
+          resources:
+            requests:
+              memory: '128Mi'
+              cpu: '100m'
+            limits:
+              memory: '256Mi'
+              cpu: '500m'
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            failureThreshold: 30 # up to 5 minutes
+            periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /health
