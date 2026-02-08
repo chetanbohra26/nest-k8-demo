@@ -16,7 +16,7 @@ spec:
       containers:
         - name: nest-k8-demo
           image: nest-k8-demo:latest
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent  # Never for Minikube; IfNotPresent for server/registry
           resources:
             requests:
               memory: '128Mi'
