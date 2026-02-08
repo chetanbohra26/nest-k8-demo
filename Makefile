@@ -5,3 +5,6 @@ NAMESPACE ?= app-service
 
 up:
 	${K8S_DIR}/scripts/up.sh $(APP_NAME) $(TAG) $(K8S_DIR) $(NAMESPACE)
+
+up-server:
+	${K8S_DIR}/scripts/up-server.sh $(APP_NAME) $(TAG) $(K8S_DIR) $(NAMESPACE)
